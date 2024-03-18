@@ -1,13 +1,11 @@
-[![Docker build](https://img.shields.io/docker/cloud/automated/jrecord/nettools?logo=Docker)](https://hub.docker.com/r/jrecord/nettools)
-[![Docker status](https://img.shields.io/docker/cloud/build/jrecord/nettools?logo=Docker)](https://hub.docker.com/r/jrecord/nettools)
-[![Docker pulls](https://img.shields.io/docker/pulls/jrecord/nettools?logo=Docker)](https://hub.docker.com/r/jrecord/nettools)
-
 # nettools
+**Works out of the box for x86 and arm64**
+
 Container image with network tools for troubleshooting Kubernetes clusters
 
 To check some networking issues in a cluster:
 
-`kubectl run -it --image=jrecord/nettools nettools --restart=Never --namespace=default`
+`kubectl run -it --image=ktaraszk/nettools nettools --restart=Never --namespace=default`
 
 Or you can keep the following yaml file handy and run it in a pod
 
@@ -27,7 +25,7 @@ metadata:
 spec:
   containers:
   - name: nettools
-    image: jrecord/nettools:latest
+    image: ktaraszk/nettools:latest
     command:
       - sleep
       - "3600"
@@ -37,4 +35,4 @@ spec:
 
 If you just want to use the network tools on a docker host:
 
-`docker run -it jrecord/nettools`
+`docker run -it ktaraszk/nettools`

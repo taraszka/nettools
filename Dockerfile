@@ -1,6 +1,9 @@
 FROM centos
+LABEL org.opencontainers.image.authors="krzysztof.taraszka@gmail.com"
 
-MAINTAINER Jed Record <erecord@lenovo.com>
+RUN cd /etc/yum.repos.d/
+RUN sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-*
+RUN sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*
 
 RUN yum update-minimal --security -y && \
   yum install -y \
